@@ -31,7 +31,7 @@ public class Pizza {
 
 	private double price;
 
-	private LocalDateTime udatedAt;
+	private LocalDateTime updatedAt;
 
 //getters e setters
 
@@ -67,12 +67,12 @@ public class Pizza {
 		this.price = price;
 	}
 
-	public LocalDateTime getUdatedAt() {
-		return udatedAt;
+	public LocalDateTime getUpdatedAt() {
+		return updatedAt;
 	}
 
-	public void setUdatedAt(LocalDateTime udatedAt) {
-		this.udatedAt = udatedAt;
+	public void setUpdatedAt(LocalDateTime updatedAt) {
+		this.updatedAt = updatedAt;
 	}
 
 }
