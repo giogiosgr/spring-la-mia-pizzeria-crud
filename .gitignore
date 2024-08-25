@@ -1,5 +1,5 @@
 bin/
+target/
 *.class
 .settings/
-/target/classes/templates
-/target/classes/public
+
