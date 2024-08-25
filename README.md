@@ -1,2 +1,2 @@
 # spring-la-mia-pizzeria-crud
- Esercitazione del 24-08
+ Applicativo di gestione del sito di una pizzeria con operazioni CRUD
