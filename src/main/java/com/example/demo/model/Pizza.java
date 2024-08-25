@@ -16,19 +16,15 @@ import jakarta.persistence.Table;
 public class Pizza {
 	
 	@Id
-
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private Integer id;
 
-	@Column(name = "name", nullable = false)
-
+	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
 	private String description;
 
 	@Column(name = "price", nullable = false)
-
 	private double price;
 
 	private LocalDateTime updatedAt;

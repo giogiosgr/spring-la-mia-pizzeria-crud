@@ -16,34 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `pizze`
+-- Table structure for table `pizzas`
 --
 
-DROP TABLE IF EXISTS `pizze`;
+DROP TABLE IF EXISTS `pizzas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `pizze` (
+CREATE TABLE `pizzas` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `description` text,
-  `price` decimal(5,2) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `price` double NOT NULL,
+  `updated_at` datetime(6) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UKgaur0k08uw3nthv9wi4d1ja5b` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `pizze`
+-- Dumping data for table `pizzas`
 --
 
-LOCK TABLES `pizze` WRITE;
-/*!40000 ALTER TABLE `pizze` DISABLE KEYS */;
-INSERT INTO `pizze` VALUES (1,'margherita','pomodoro mozzarella basilico',6.00),(2,'4 formaggi','i quattro formaggi',7.50),(3,'4 stagioni','olive carciofi prosciutto e funghi',8.00),(4,'tirolese','pomodoro, mozzarella, grana, speck',8.50),(5,'cacio e pepe','pomodoro, cacio e pece',10.00);
-/*!40000 ALTER TABLE `pizze` ENABLE KEYS */;
+LOCK TABLES `pizzas` WRITE;
+/*!40000 ALTER TABLE `pizzas` DISABLE KEYS */;
+/*!40000 ALTER TABLE `pizzas` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping routines for database 'pizzeria'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -54,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-25 10:54:11
+-- Dump completed on 2024-08-25 21:11:22
