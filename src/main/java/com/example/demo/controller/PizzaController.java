@@ -18,7 +18,7 @@ public class PizzaController {
 	@Autowired
 	private PizzaRepository repo;
 	
-	@GetMapping()
+	@GetMapping("/index")
 	public String index(Model model) {
 		
 		// consegna dei dati a pizzas/index
