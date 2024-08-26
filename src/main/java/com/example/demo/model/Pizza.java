@@ -23,6 +23,9 @@ public class Pizza {
 	private String name;
 
 	private String description;
+	
+	
+	private String url;
 
 	@Column(name = "price", nullable = false)
 	private double price;
@@ -53,6 +56,14 @@ public class Pizza {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	
+	public String getUrl() {
+		return url;
+	}
+	
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	public double getPrice() {
