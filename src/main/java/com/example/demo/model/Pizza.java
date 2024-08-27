@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
+@SuppressWarnings("unused")
 @Entity
 
 @Table(name = "pizzas")
@@ -34,8 +35,8 @@ public class Pizza {
 
 	private LocalDateTime updatedAt;
 	
-	@Transient
-	private DecimalFormat formatter = new DecimalFormat("#,##0.00");
+	//@Transient
+	//private DecimalFormat formatter = new DecimalFormat("#,##0.00");
 
 //getters e setters
 
@@ -72,7 +73,8 @@ public class Pizza {
 	}
 
 	public String getPrice() {
-		return formatter.format(this.price) + '€';
+		//return formatter.format(this.price) + '€';
+		return String.format("%.2f€", this.price);
 	}
 
 	public void setPrice(double price) {
