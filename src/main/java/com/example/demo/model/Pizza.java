@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
@@ -8,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 
@@ -31,6 +33,9 @@ public class Pizza {
 	private double price;
 
 	private LocalDateTime updatedAt;
+	
+	@Transient
+	private DecimalFormat formatter = new DecimalFormat("#,##0.00");
 
 //getters e setters
 
@@ -66,8 +71,8 @@ public class Pizza {
 		this.url = url;
 	}
 
-	public double getPrice() {
-		return price;
+	public String getPrice() {
+		return formatter.format(this.price) + '€';
 	}
 
 	public void setPrice(double price) {
