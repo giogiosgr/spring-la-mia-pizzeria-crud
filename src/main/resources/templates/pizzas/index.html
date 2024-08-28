@@ -18,6 +18,7 @@
 							<th>Descrizione</th>
 							<th>Foto</th>
 							<th>Prezzo</th>
+							<th>Vai su:</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -26,6 +27,7 @@
 							<td th:text="${pizza.description}"></td>
 							<td> <img th:src="@{{url}(url=${pizza.url})}"></td>
 							<td th:text="${pizza.price}"></td>
+							<td> <a class="btn btn-primary" th:href="@{index/{id}(id=${pizza.id})}" role="button">Dettagli</a></td>
 						</tr>
 					</tbody>
 			</th:block>
