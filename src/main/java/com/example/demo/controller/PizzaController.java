@@ -31,7 +31,7 @@ public class PizzaController {
 		return "/pizzas/index";
 	}
 	
-	@GetMapping("/index/{id}")
+	@GetMapping("{id}")
 	public String pizzaDetails(@PathVariable int id, Model model) {
 		
 		// consegna al model di una specifica entità pizza tramite ID		
