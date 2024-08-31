@@ -9,7 +9,17 @@
 
 	<main class="container">
 		<div class="row">
+
+			<form action="http://localhost:8080/pizzas/search">
+				<div class="form-group my-3">
+					<label for="name-input" class="fw-bold">Filtra la lista delle pizze per nome</label>
+					<input name="name" type="text" class="form-control" id="name-input" placeholder="inserisci nome o parte del nome">
+				</div>
+				<button type="submit" class="btn btn-primary mb-4">Cerca Pizze</button>
+			</form>
+
 			<h1>Pizze</h1>
+
 			<th:block th:if="${pizzas.size() > 0}">
 				<table class="table table-striped table-hover">
 					<thead>
@@ -27,7 +37,9 @@
 							<td th:text="${pizza.description}"></td>
 							<td> <img th:src="@{{url}(url=${pizza.url})}"></td>
 							<td th:text="${pizza.price}"></td>
-							<td> <a class="btn btn-primary" th:href="@{http://localhost:8080/pizzas/show/{id}(id=${pizza.id})}" role="button">Dettagli</a></td>
+							<td> <a class="btn btn-primary"
+									th:href="@{http://localhost:8080/pizzas/show/{id}(id=${pizza.id})}"
+									role="button">Dettagli</a></td>
 						</tr>
 					</tbody>
 			</th:block>
