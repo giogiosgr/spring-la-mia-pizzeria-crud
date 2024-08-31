@@ -25,9 +25,9 @@ public class Pizza {
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
+	@Column(length = 500)
 	private String description;
-	
-	
+		
 	private String url;
 
 	@Column(name = "price", nullable = false)
