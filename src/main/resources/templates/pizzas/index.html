@@ -5,14 +5,14 @@
 
 <body>
 
-	<header th:insert="~{fragments/fragments :: navbar}"></header>
+	<header th:insert="~{fragments/fragments :: navbar('index')}"></header>
 
 	<main class="container">
 		<div class="row">
 
 			<form action="http://localhost:8080/pizzas/search">
 				<div class="form-group my-3">
-					<label for="name-input" class="fw-bold">Filtra la lista delle pizze per nome</label>
+					<label for="name-input" class="fw-bold">Filtra le pizze per nome</label>
 					<input name="name" type="text" class="form-control" id="name-input"
 						placeholder="inserisci nome o parte del nome">
 				</div>
@@ -37,7 +37,7 @@
 							<td th:text="${pizza.name}" class="fs-3"></td>
 							<td th:text="${pizza.description}"></td>
 							<td> <img th:src="@{{url}(url=${pizza.url})}"></td>
-							<td th:text="${pizza.price}"></td>
+							<td th:text="${pizza.price}" class="fw-bold"></td>
 							<td> <a class="btn btn-success"
 									th:href="@{http://localhost:8080/pizzas/show/{id}(id=${pizza.id})}"
 									role="button">Dettagli</a></td>

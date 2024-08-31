@@ -5,12 +5,12 @@
 
 <body>
 
-	<nav th:replace="~{fragments/fragments :: navbar}"></nav>
+	<nav th:replace="~{fragments/fragments :: navbar('home')}"></nav>
 
 	<div class="card mx-4 my-4" style="width: 18rem;">
 		<img th:src="@{/img/dummy_300x200_ffffff_cccccc.png}" class="card-img-top" alt="...">
 		<div class="card-body">
-			<p th:text="'Pizzeria da ' + ${name}" class="card-text"></p>
+			<p th:text="'Pizzeria da ' + ${name}" class="card-text text-center fs-4"></p>
 		</div>
 	</div>
 
