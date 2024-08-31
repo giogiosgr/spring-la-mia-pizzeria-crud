@@ -27,7 +27,7 @@
 							<td th:text="${pizza.description}"></td>
 							<td> <img th:src="@{{url}(url=${pizza.url})}"></td>
 							<td th:text="${pizza.price}"></td>
-							<td> <a class="btn btn-primary" th:href="@{pizzas/show/{id}(id=${pizza.id})}" role="button">Dettagli</a></td>
+							<td> <a class="btn btn-primary" th:href="@{http://localhost:8080/pizzas/show/{id}(id=${pizza.id})}" role="button">Dettagli</a></td>
 						</tr>
 					</tbody>
 			</th:block>

@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import java.util.List;
 import java.util.Optional;
 import com.example.demo.model.Pizza;
@@ -31,13 +33,25 @@ public class PizzaController {
 		return "/pizzas/index";
 	}
 	
-	@GetMapping("show/{id}")
+	@GetMapping("/show/{id}")
 	public String pizzaDetails(@PathVariable int id, Model model) {
 		
-		// consegna al model di una specifica entità pizza tramite ID		
+		// consegna al model di una specifica ennupla pizza tramite ID		
 		model.addAttribute("pizza", repo.findById(id).get());
 		
 		return "/pizzas/show";
 	}
+	
+	@GetMapping("search") 
+	public String pizzaSearch(@RequestParam String name, Model model) {
+	    
+		// consegna al model di specifiche ennuple di pizza tramite custom query
+		model.addAttribute("pizzas", repo.findByNameContainingOrderByName(name));
+		
+		return "/pizzas/index";
+	}
+	
+		
+	
 	
 }
