@@ -9,17 +9,23 @@
 
 	<main class="container">
 		<div class="row">
+			
+			<h1 class="my-3">LE NOSTRE PIZZE:</h1>
 
 			<form action="http://localhost:8080/pizzas/search">
 				<div class="form-group my-3">
 					<label for="name-input" class="fw-bold">Filtra le pizze per nome</label>
-					<input name="name" type="text" class="form-control" id="name-input"
-						placeholder="inserisci nome o parte del nome">
+					<div class="row">
+						<div class="col-5">
+							<input name="name" type="text" class="form-control" id="name-input"
+								placeholder="inserisci nome o parte del nome">
+						</div>
+						<div class="col-2 ps-0">
+							<button type="submit" class="btn btn-success">Cerca Pizze</button>
+						</div>
+					</div>
 				</div>
-				<button type="submit" class="btn btn-success mb-4">Cerca Pizze</button>
 			</form>
-
-			<h1>Pizze</h1>
 
 			<th:block th:if="${pizzas.size() > 0}">
 				<table class="table table-striped table-hover">
