@@ -17,7 +17,7 @@ import jakarta.persistence.Transient;
 @Table(name = "pizzas")
 
 public class Pizza {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -27,16 +27,16 @@ public class Pizza {
 
 	@Column(length = 500)
 	private String description;
-		
+
 	private String url;
 
 	@Column(name = "price", nullable = false)
 	private double price;
 
 	private LocalDateTime updatedAt;
-	
-	//@Transient
-	//private DecimalFormat formatter = new DecimalFormat("#,##0.00");
+
+	// @Transient
+	// private DecimalFormat formatter = new DecimalFormat("#,##0.00");
 
 //getters e setters
 
@@ -63,17 +63,17 @@ public class Pizza {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	
+
 	public String getUrl() {
 		return url;
 	}
-	
+
 	public void setUrl(String url) {
 		this.url = url;
 	}
 
 	public String getPrice() {
-		//return formatter.format(this.price) + '€';
+		// return formatter.format(this.price) + '€';
 		return String.format("%.2f€", this.price);
 	}
 
