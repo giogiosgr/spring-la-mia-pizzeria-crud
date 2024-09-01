@@ -9,20 +9,17 @@
 
 	<main class="container">
 		<div class="row">
-			
-			<h1 class="my-3">LE NOSTRE PIZZE:</h1>
+
+			<h2 class="my-3">LE NOSTRE PIZZE:</h2>
 
 			<form action="http://localhost:8080/pizzas/search">
-				<div class="form-group my-3">
-					<label for="name-input" class="fw-bold">Filtra le pizze per nome</label>
-					<div class="row">
-						<div class="col-5">
-							<input name="name" type="text" class="form-control" id="name-input"
-								placeholder="inserisci nome o parte del nome">
-						</div>
-						<div class="col-2 ps-0">
-							<button type="submit" class="btn btn-success">Cerca Pizze</button>
-						</div>
+				<div class="form-group my-3 row">
+					<div class="col-5">
+						<input name="name" type="text" class="form-control" id="name-input"
+							placeholder="cerca pizze per nome">
+					</div>
+					<div class="col-2 ps-0">
+						<button type="submit" class="btn btn-success">Cerca Pizze</button>
 					</div>
 				</div>
 			</form>
