@@ -31,7 +31,7 @@
 							<th>Nome</th>
 							<th>Descrizione</th>
 							<th class="text-center">Foto</th>
-							<th>Prezzo</th>
+							<th class="text-center">Prezzo</th>
 							<th class="text-center">Vai su:</th>
 						</tr>
 					</thead>
@@ -40,7 +40,7 @@
 							<td th:text="${pizza.name}" class="fs-3"></td>
 							<td th:text="${pizza.description}"></td>
 							<td class="text-center"> <img th:src="@{{url}(url=${pizza.photoUrl})}"></td>
-							<td th:text="${pizza.price}" class="fw-bold"></td>
+							<td th:text="${pizza.price}" class="fw-bold text-center"></td>
 							<td class="text-center"> <a class="btn btn-success m-1"
 									th:href="@{http://localhost:8080/pizzas/show/{id}(id=${pizza.id})}"
 									role="button">Dettagli</a>
