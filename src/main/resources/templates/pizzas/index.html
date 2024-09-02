@@ -30,20 +30,23 @@
 						<tr>
 							<th>Nome</th>
 							<th>Descrizione</th>
-							<th>Foto</th>
+							<th class="text-center">Foto</th>
 							<th>Prezzo</th>
-							<th>Vai su:</th>
+							<th class="text-center">Vai su:</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="pizza : ${pizzas}">
 							<td th:text="${pizza.name}" class="fs-3"></td>
 							<td th:text="${pizza.description}"></td>
-							<td> <img th:src="@{{url}(url=${pizza.url})}"></td>
+							<td class="text-center"> <img th:src="@{{url}(url=${pizza.photoUrl})}"></td>
 							<td th:text="${pizza.price}" class="fw-bold"></td>
-							<td> <a class="btn btn-success"
+							<td class="text-center"> <a class="btn btn-success m-1"
 									th:href="@{http://localhost:8080/pizzas/show/{id}(id=${pizza.id})}"
-									role="button">Dettagli</a></td>
+									role="button">Dettagli</a>
+								<a class="btn btn-warning m-1" th:href="@{temp}" role="button">Modifica</a>
+								<a class="btn btn-danger m-1" th:href="@{temp}" role="button">Cancella</a>
+							</td>
 						</tr>
 					</tbody>
 			</th:block>
