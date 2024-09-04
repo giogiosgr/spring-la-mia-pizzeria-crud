@@ -9,7 +9,7 @@
 
 	<main class="container">
 
-		<h2 class="my-3">AGGIUNTA NUOVA PIZZA</h2>
+		<h2 class="my-5">AGGIUNTA NUOVA PIZZA</h2>
 
 		<form id="pizza-form" th:object="${pizza}" th:action="@{/pizzas/create}" method="POST">
 			<div class="mb-3">
@@ -18,7 +18,7 @@
 					th:errorClass="is-invalid">
 				<div th:if="${#fields.hasErrors('name')}" class="invalid-feedback">
 					<ul>
-						<li th:each="err : ${fields.error('name')}" th:text="${err}"></li>
+						<li th:each="err : ${#fields.errors('name')}" th:text="${err}"></li>
 					</ul>
 				</div>
 			</div>
@@ -28,17 +28,17 @@
 					th:errorClass="is-invalid">
 				<div th:if="${#fields.hasErrors('description')}" class="invalid-feedback">
 					<ul>
-						<li th:each="err : ${fields.error('description')}" th:text="${err}"></li>
+						<li th:each="err : ${#fields.errors('description')}" th:text="${err}"></li>
 					</ul>
 				</div>
 			</div>
 			<div class="mb-3">
 				<label for="photo-url" class="form-label">URL foto</label>
-				<input name="photo-url" type="text" class="form-control" id="photo-url" th:field="*{photoUrl}"
-					th:errorClass="is-invalid">
+				<input name="photo-url" value="/img/generic.png" type="text" class="form-control" id="photo-url"
+					th:field="*{photoUrl}" th:errorClass="is-invalid">
 				<div th:if="${#fields.hasErrors('photoUrl')}" class="invalid-feedback">
 					<ul>
-						<li th:each="err : ${fields.error('photoUrl')}" th:text="${err}"></li>
+						<li th:each="err : ${#fields.errors('photoUrl')}" th:text="${err}"></li>
 					</ul>
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 					th:errorClass="is-invalid">
 				<div th:if="${#fields.hasErrors('price')}" class="invalid-feedback">
 					<ul>
-						<li th:each="err : ${fields.error('price')}" th:text="${err}"></li>
+						<li th:each="err : ${#fields.errors('price')}" th:text="${err}"></li>
 					</ul>
 				</div>
 			</div>

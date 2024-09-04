@@ -70,9 +70,9 @@ public class PizzaController {
 		if (bindingResult.hasErrors()) {
 			return "/pizzas/create";
 		}
-		
+
 		repo.save(pizzaForm);
-		
+
 		return "redirect:/pizzas";
 	}
 

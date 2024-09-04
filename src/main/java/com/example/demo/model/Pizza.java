@@ -3,6 +3,8 @@ package com.example.demo.model;
 import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
+import jakarta.validation.constraints.*;
 
 @SuppressWarnings("unused")
 
@@ -22,18 +25,25 @@ public class Pizza {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
+	@NotNull
+	@Size(min=2, max=255)
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
 
+	@Size(max=500)
 	@Column(length = 500)
 	private String description;
 
+	@Size(max=1000)
 	@Column(length = 1000)
 	private String photoUrl;
 
+	@NotNull
+	@Min(2)
 	@Column(name = "price", nullable = false)
 	private double price;
 
+	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
 	// @Transient
