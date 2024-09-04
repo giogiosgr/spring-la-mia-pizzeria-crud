@@ -50,5 +50,14 @@ public class PizzaController {
 
 		return "/pizzas/index";
 	}
+	
+	@GetMapping("create")
+	public String pizzaSearch(Model model) {
+
+		
+		model.addAttribute("pizzas", repo.findAll());
+
+		return "/pizzas/create";
+	}
 
 }
