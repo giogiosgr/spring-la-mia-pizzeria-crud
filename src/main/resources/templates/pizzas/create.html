@@ -34,7 +34,7 @@
 			</div>
 			<div class="mb-3">
 				<label for="photo-url" class="form-label">URL foto</label>
-				<input name="photo-url" value="/img/generic.png" type="text" class="form-control" id="photo-url"
+				<input name="photo-url" type="text" class="form-control" id="photo-url"
 					th:field="*{photoUrl}" th:errorClass="is-invalid">
 				<div th:if="${#fields.hasErrors('photoUrl')}" class="invalid-feedback">
 					<ul>
