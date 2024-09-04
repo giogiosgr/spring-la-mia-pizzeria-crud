@@ -3,8 +3,11 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -13,6 +16,8 @@ import java.util.Optional;
 import com.example.demo.model.Pizza;
 import com.example.demo.repo.PizzaRepository;
 
+import jakarta.validation.Valid;
+
 @SuppressWarnings("unused")
 
 @Controller
@@ -20,7 +25,6 @@ import com.example.demo.repo.PizzaRepository;
 public class PizzaController {
 
 	// repository field con autowired per dependency injection
-
 	@Autowired
 	private PizzaRepository repo;
 
@@ -42,7 +46,7 @@ public class PizzaController {
 		return "/pizzas/show";
 	}
 
-	@GetMapping("search")
+	@GetMapping("/search")
 	public String pizzaSearch(@RequestParam String name, Model model) {
 
 		// consegna al model di specifiche ennuple di pizza tramite custom query
@@ -50,14 +54,26 @@ public class PizzaController {
 
 		return "/pizzas/index";
 	}
-	
-	@GetMapping("create")
-	public String pizzaSearch(Model model) {
 
-		
-		model.addAttribute("pizzas", repo.findAll());
+	@GetMapping("/create")
+	public String pizzaCreate(Model model) {
+
+		// consegna al model di un nuovo oggetto pizza
+		model.addAttribute("pizza", new Pizza());
 
 		return "/pizzas/create";
+	}
+
+	@PostMapping("/create")
+	public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "/pizzas/create";
+		}
+		
+		repo.save(pizzaForm);
+		
+		return "redirect:/pizzas";
 	}
 
 }

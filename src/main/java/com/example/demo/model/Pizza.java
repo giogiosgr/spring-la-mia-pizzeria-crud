@@ -12,8 +12,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @SuppressWarnings("unused")
-@Entity
 
+@Entity
 @Table(name = "pizzas")
 
 public class Pizza {
@@ -73,9 +73,10 @@ public class Pizza {
 		this.photoUrl = url;
 	}
 
-	public String getPrice() {
+	public double getPrice() {
 		// return formatter.format(this.price) + '€';
-		return String.format("%.2f€", this.price);
+		//return String.format("%.2f€", this.price);
+		return price;
 	}
 
 	public void setPrice(double price) {
