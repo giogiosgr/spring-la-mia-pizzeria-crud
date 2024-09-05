@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -63,7 +64,7 @@ public class PizzaController {
 
 		return "/pizzas/create";
 	}
-	
+
 	// STORE
 	@PostMapping("/create")
 	public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
@@ -76,16 +77,16 @@ public class PizzaController {
 
 		return "redirect:/pizzas";
 	}
-	
+
 	// EDIT
 	@GetMapping("/edit/{id}")
 	public String edit(@PathVariable int id, Model model) {
-		
+
 		model.addAttribute("pizza", repo.findById(id).get());
 
 		return "/pizzas/edit";
 	}
-	
+
 	// UPDATE
 	@PostMapping("/edit/{id}")
 	public String update(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
@@ -95,6 +96,17 @@ public class PizzaController {
 		}
 
 		repo.save(pizzaForm);
+
+		return "redirect:/pizzas";
+	}
+
+	// DELETE
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable int id, Model model, RedirectAttributes attributes) {
+
+		repo.deleteById(id);
+		
+		attributes.addFlashAttribute("successMessage", "Pizza eliminata con successo");
 
 		return "redirect:/pizzas";
 	}
