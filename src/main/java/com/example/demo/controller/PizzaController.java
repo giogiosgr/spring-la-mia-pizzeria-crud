@@ -106,7 +106,7 @@ public class PizzaController {
 
 		repo.deleteById(id);
 		
-		attributes.addFlashAttribute("successMessage", "Pizza eliminata con successo");
+		// attributes.addFlashAttribute("successMessage", "Pizza eliminata con successo");
 
 		return "redirect:/pizzas";
 	}
