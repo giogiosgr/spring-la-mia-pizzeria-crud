@@ -55,20 +55,43 @@ public class PizzaController {
 		return "/pizzas/index";
 	}
 
+	// CREATE
 	@GetMapping("/create")
 	public String pizzaCreate(Model model) {
 
-		// consegna al model di un nuovo oggetto pizza
 		model.addAttribute("pizza", new Pizza());
 
 		return "/pizzas/create";
 	}
-
+	
+	// STORE
 	@PostMapping("/create")
 	public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return "/pizzas/create";
+		}
+
+		repo.save(pizzaForm);
+
+		return "redirect:/pizzas";
+	}
+	
+	// EDIT
+	@GetMapping("/edit/{id}")
+	public String edit(@PathVariable int id, Model model) {
+		
+		model.addAttribute("pizza", repo.findById(id).get());
+
+		return "/pizzas/edit";
+	}
+	
+	// UPDATE
+	@PostMapping("/edit/{id}")
+	public String update(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "/pizzas/edit";
 		}
 
 		repo.save(pizzaForm);

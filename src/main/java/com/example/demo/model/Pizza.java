@@ -46,10 +46,10 @@ public class Pizza {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 
-	// @Transient
-	// private DecimalFormat formatter = new DecimalFormat("#,##0.00");
+	//@Transient
+	//private DecimalFormat formatter = new DecimalFormat("#,##0.00");
 
-//getters e setters
+    // getters e setters
 
 	public Integer getId() {
 		return id;
@@ -84,7 +84,7 @@ public class Pizza {
 	}
 
 	public double getPrice() {
-		// return formatter.format(this.price) + '€';
+		//return formatter.format(this.price) + '€';
 		//return String.format("%.2f€", this.price);
 		return price;
 	}
