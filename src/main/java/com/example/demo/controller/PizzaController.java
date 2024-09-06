@@ -67,13 +67,15 @@ public class PizzaController {
 
 	// STORE
 	@PostMapping("/create")
-	public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
+	public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
 
 		if (bindingResult.hasErrors()) {
 			return "/pizzas/create";
 		}
 
 		repo.save(pizzaForm);
+		
+		attributes.addFlashAttribute("successMessage", "Pizza " + pizzaForm.getName() + " creata con successo");
 
 		return "redirect:/pizzas";
 	}
@@ -89,13 +91,15 @@ public class PizzaController {
 
 	// UPDATE
 	@PostMapping("/edit/{id}")
-	public String update(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model) {
+	public String update(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
 
 		if (bindingResult.hasErrors()) {
 			return "/pizzas/edit";
 		}
 
 		repo.save(pizzaForm);
+		
+		attributes.addFlashAttribute("successMessage", "Pizza " + pizzaForm.getName() + " modificata con successo");
 
 		return "redirect:/pizzas";
 	}
@@ -103,10 +107,12 @@ public class PizzaController {
 	// DELETE
 	@PostMapping("/delete/{id}")
 	public String delete(@PathVariable int id, Model model, RedirectAttributes attributes) {
+		
+		Pizza deletedPizza = repo.findById(id).get();
 
 		repo.deleteById(id);
 		
-		// attributes.addFlashAttribute("successMessage", "Pizza eliminata con successo");
+		attributes.addFlashAttribute("successMessage", "Pizza " + deletedPizza.getName() + " eliminata con successo");
 
 		return "redirect:/pizzas";
 	}

@@ -88,6 +88,11 @@ public class Pizza {
 		//return String.format("%.2f€", this.price);
 		return price;
 	}
+	
+	public String getFormattedPrice() {
+		//return formatter.format(this.price) + '€';
+		return String.format("%.2f €", this.price);
+	}
 
 	public void setPrice(double price) {
 		this.price = price;
