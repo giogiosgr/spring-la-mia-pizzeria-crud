@@ -52,7 +52,7 @@
 							<td th:text="${pizza.name}" class="fs-3"></td>
 							<td th:text="${pizza.description}" class="pt-3"></td>
 							<td class="text-center"> <img th:src="@{{url}(url=${pizza.photoUrl})}"></td>
-							<td th:text="${pizza.price} + ' €'" class="fw-bold text-center pt-3"></td>
+							<td th:text="${pizza.getFormattedPrice()}" class="fw-bold text-center pt-3"></td>
 							<td class="text-center">
 								<a class="btn btn-sm btn-success m-1"
 									th:href="@{'http://localhost:8080/pizzas/show/{id}'(id=${pizza.id})}"
@@ -61,7 +61,7 @@
 									th:href="@{'http://localhost:8080/pizzas/edit/{id}'(id=${pizza.id})}"
 									role="button">Modifica</a>
 								<!-- Button trigger modal -->
-								<button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+								<button type="button" class="btn btn-sm btn-danger m-1" data-bs-toggle="modal"
 									th:data-bs-target="'#delete-' + ${pizza.id}">
 									Cancella
 								</button>
