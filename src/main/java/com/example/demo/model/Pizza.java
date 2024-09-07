@@ -20,12 +20,15 @@ import jakarta.validation.constraints.*;
 @Table(name = "pizzas")
 
 public class Pizza {
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	// Viene usata la Bean Validation
 
 	@NotNull
+	@NotEmpty
 	@Size(min=2, max=255)
 	@Column(name = "name", nullable = false, unique = true)
 	private String name;
