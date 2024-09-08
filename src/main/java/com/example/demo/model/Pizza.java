@@ -43,7 +43,6 @@ public class Pizza {
 	@Column(length = 1000)
 	private String photoUrl;
 
-	@NotNull
 	@Min(2)
 	@Column(name = "price", nullable = false)
 	private double price;
@@ -51,6 +50,7 @@ public class Pizza {
 	@UpdateTimestamp
 	private LocalDateTime updatedAt;
 	
+	@NotNull
 	@ManyToOne
     @JoinColumn(name = "pizzaMaker_id")
     private PizzaMaker pizzaMaker;
