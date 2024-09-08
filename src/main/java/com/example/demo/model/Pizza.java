@@ -114,5 +114,13 @@ public class Pizza {
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
+	public PizzaMaker getPizzaMaker() {
+		return pizzaMaker;
+	}
+	
+	public void setPizzaMaker(PizzaMaker pizzaMaker) {
+		this.pizzaMaker = pizzaMaker;
+	}
 
 }

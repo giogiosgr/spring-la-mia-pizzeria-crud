@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 import java.util.Optional;
 import com.example.demo.model.Pizza;
+import com.example.demo.repo.PizzaMakerRepository;
 import com.example.demo.repo.PizzaRepository;
 
 import jakarta.validation.Valid;
@@ -28,6 +29,9 @@ public class PizzaController {
 	// repository field con autowired per dependency injection
 	@Autowired
 	private PizzaRepository repo;
+	
+	@Autowired
+	private PizzaMakerRepository repoMaker;
 
 	@GetMapping
 	public String index(Model model) {
@@ -41,8 +45,12 @@ public class PizzaController {
 	@GetMapping("/show/{id}")
 	public String pizzaDetails(@PathVariable int id, Model model) {
 
-		// consegna al model di una specifica ennupla pizza tramite ID
-		model.addAttribute("pizza", repo.findById(id).get());
+		Pizza pizza = repo.findById(id).get();
+		
+		// consegna al model della specifica pizza cercata tramite ID
+		model.addAttribute("pizza", pizza);
+		// consegna al model del pizzaiolo collegato alla stessa pizza
+		model.addAttribute("pizzaMaker", pizza.getPizzaMaker());
 
 		return "/pizzas/show";
 	}
