@@ -15,6 +15,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.List;
 import java.util.Optional;
 import com.example.demo.model.Pizza;
+import com.example.demo.model.PizzaMaker;
 import com.example.demo.repo.PizzaMakerRepository;
 import com.example.demo.repo.PizzaRepository;
 
@@ -80,6 +81,7 @@ public class PizzaController {
 	public String store(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
 
 		if (bindingResult.hasErrors()) {
+			model.addAttribute("pizzaMakerList", repoMaker.findAll());
 			return "/pizzas/create";
 		}
 
@@ -106,6 +108,7 @@ public class PizzaController {
 	public String update(@Valid @ModelAttribute("pizza") Pizza pizzaForm, BindingResult bindingResult, Model model, RedirectAttributes attributes) {
 
 		if (bindingResult.hasErrors()) {
+			model.addAttribute("pizzaMakerList", repoMaker.findAll());
 			return "/pizzas/edit";
 		}
 
