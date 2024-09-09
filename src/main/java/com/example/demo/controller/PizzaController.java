@@ -95,6 +95,8 @@ public class PizzaController {
 	public String edit(@PathVariable int id, Model model) {
 
 		model.addAttribute("pizza", repo.findById(id).get());
+		
+		model.addAttribute("pizzaMakerList", repoMaker.findAll());
 
 		return "/pizzas/edit";
 	}
