@@ -69,6 +69,8 @@ public class PizzaController {
 	public String pizzaCreate(Model model) {
 
 		model.addAttribute("pizza", new Pizza());
+			
+		model.addAttribute("pizzaMakerList", repoMaker.findAll());
 
 		return "/pizzas/create";
 	}
